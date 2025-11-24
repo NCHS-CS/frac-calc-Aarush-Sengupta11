@@ -1,0 +1,1 @@
+Weekly instructions will be provided in Schoology.

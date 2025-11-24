@@ -1,0 +1,25 @@
+{
+  "name": "Java (JDK 24 via Feature)",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      // Install Temurin 24.0.2 specifically
+      "version": "24.0.2-tem",
+      "jdkDistro": "tem",
+      "installMaven": false,
+      "installGradle": false
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack"
+      ]
+    }
+  },
+
+  // Sanity check after create
+  "postCreateCommand": "java -version && echo Using JAVA_HOME=$JAVA_HOME"
+}
