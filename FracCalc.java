@@ -1,5 +1,5 @@
-// Student Name
-// Period X
+// Aarush Sengupta
+// Period 6
 // Fraction Calculator Project
 
 import java.util.*;
@@ -45,7 +45,9 @@ public class FracCalc {
    // Return the full line that the user typed in.
    public static String getInput() {
       // TODO: Implement this method
-       return "quit";
+      System.out.print("Enter:   ");
+      String s = console.nextLine();
+      return s;
 
    }
    
@@ -81,19 +83,59 @@ public class FracCalc {
    //        2 1/4
    public static String processExpression(String input) {
       // TODO: implement this method!
-    
-        return "reduced result of expression";
+      Scanner parser = new Scanner(input);
+      parser.next();
+      String operator = parser.next();
+      String x = parser.next();
+      String num = "0";
+      String den = "1";
+      String whole = "0";
+
+     /*   if (x.length() == 3) {
+         num = Character.toString(x.charAt(0));
+         den = Character.toString(x.charAt(2));
+      }
+      else if (x.length() == 5) {
+         whole = Character.toString(x.charAt(0));
+         num = Character.toString(x.charAt(2));
+         den = Character.toString(x.charAt(4));
+      }
+         */
+      if (x.indexOf('/') == -1) {
+         whole = Character.toString(x.charAt(0));
+      }
+      else {
+         //num = Character.toString(x.charAt(x.indexOf('/')-1));
+         
+         if (x.indexOf('_') != -1) {
+            //whole = Character.toString(x.charAt(x.indexOf('_')-1));
+            whole = x.substring(0, (x.indexOf('_')));
+            num = x.substring((x.indexOf('_')+1), (x.indexOf('/')));
+         }
+         else {
+            num = x.substring(0, x.indexOf('/'));
+         }
+         
+         //den = Character.toString(x.charAt(x.indexOf('/')+1));
+         den = x.substring((x.indexOf('/')+1), x.length());
+
+         if (num.charAt(0) == '-' && den.charAt(0) == '-') {
+            num = num.substring(1, num.length());
+            den = den.substring(1, den.length());
+         }
+      }
+      
+      return "Op:" + operator + " Whole:" + whole + " Num:" + num + " Den:" + den;
 
    }
    
+
    // Returns a string that is helpful to the user about how
    // to use the program. These are instructions to the user.
    public static String provideHelp() {
       // TODO: Update this help text!
      
-      String help = "You must change this text.\n";
-      help += "Students, you need to provide actual helpful text here!";
-      
+      String help = "Welcome to the fraction calculator. Please enter a mathematical expression of your choosing. You can add(+), subtract, multiply(*), and divide(/) whole integers and fractions. Please make sure to space out each term.\n";
       return help;
    }
 }
