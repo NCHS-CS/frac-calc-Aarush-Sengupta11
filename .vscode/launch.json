@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "FracCalc2",
+            "request": "launch",
+            "mainClass": "FracCalc2",
+            "projectName": "frac-calc-Aarush-Sengupta11_908c94cd"
+        },
+        {
+            "type": "java",
             "name": "FracCalc",
             "request": "launch",
             "mainClass": "FracCalc",
